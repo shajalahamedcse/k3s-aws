@@ -46,3 +46,8 @@ jobs:
         run: |
           cd infra
           pulumi refresh --yes
+
+      - name: Pulumi up
+        run: |
+          cd infra
+          pulumi up --yes 
