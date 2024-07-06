@@ -130,5 +130,44 @@ git_runner_instance = ec2.Instance('git-runner-instance',
         'Name': 'git-runner-dev',
     }
 )
+
+
+# EC2 instances
+master_instance = ec2.Instance(
+    'master-instance',
+    instance_type=instance_type,
+    ami=ami,
+    subnet_id=private_subnet.id,
+    vpc_security_group_ids=[security_group.id],
+    key_name=key_pair.key_name,
+    tags={
+        'Name': 'k3s-master',
+    }
+)
+
+worker_instance_1 = ec2.Instance('worker-instance-1',
+    instance_type=instance_type,
+    ami=ami,
+    subnet_id=private_subnet.id,
+    vpc_security_group_ids=[security_group.id],
+    key_name=key_pair.key_name,
+    tags={
+        'Name': 'k3-worker-1',
+    }
+)
+
+worker_instance_2 = ec2.Instance('worker-instance-2',
+    instance_type=instance_type,
+    ami=ami,
+    subnet_id=private_subnet.id,
+    vpc_security_group_ids=[security_group.id],
+    key_name=key_pair.key_name,
+    tags={
+        'Name': 'k3-worker-2',
+    }
+)
 # Output the instance IP addresses
 pulumi.export('git_runner_public_ip', git_runner_instance.public_ip)
+pulumi.export('master_private_ip', master_instance.private_ip)
+pulumi.export('worker1_private_ip', worker_instance_1.private_ip)
+pulumi.export('worker2_private_ip', worker_instance_2.private_ip)
