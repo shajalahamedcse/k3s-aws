@@ -43,3 +43,8 @@ jobs:
         run: |
           cd infra
           pulumi stack select shajalahamedcse/infra/aws-k3s
+
+     - name: Pulumi refresh
+        run: |
+        cd infra
+        pulumi refresh --yes
