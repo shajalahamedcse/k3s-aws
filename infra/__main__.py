@@ -4,6 +4,7 @@ import pulumi
 import pulumi_aws as aws
 import pulumi_aws.ec2 as ec2
 from pulumi_aws.ec2 import SecurityGroupRuleArgs
+import os
 
 
 # Configuration
