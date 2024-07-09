@@ -6,8 +6,8 @@ on:
     branches:
       - main
       - master
-    paths:
-      - ansible/**
+    # paths:
+    #   - ansible/**
 
 jobs:
   setup_runner:
