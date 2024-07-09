@@ -6,9 +6,9 @@ on:
   #   types:
   #     - completed
   push:
-  branches:
-    - main
-    - master
+    branches:
+      - main
+      - master
 
 jobs:
   setup_runner:
